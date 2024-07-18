@@ -4,11 +4,25 @@ const formElement = document.getElementById('preventivo')
 const oreLavoro = 10
 const codiciPromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 
+let tipiLavoroArray = [
+    {value: 'backend', nome: 'Sviluppo Backend'},
+    {value: 'frontend', nome: 'Sviluppo Frontend'},
+    {value: 'analisi', nome: 'Analisi Progettuale'},
+]
+const lavoroSelect = document.getElementById('lavoro')
+
+tipiLavoroArray.forEach(element => {
+    const option = document.createElement('option');
+    option.value = element.value;
+    option.textContent = element.nome;
+    lavoroSelect.appendChild(option);
+});
+
 formElement.addEventListener('submit', function (event) {
     event.preventDefault()
     
     let tariffaOraria
-    let lavoro = document.getElementById('lavoro').value
+    let lavoro = lavoroSelect.value
     const codicePromoElement = document.getElementById('codicesconto')
     let codicePromo = codicePromoElement.value
     let prezzoPreventivoElement = document.getElementById('prezzo-preventivo')
