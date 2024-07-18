@@ -28,8 +28,7 @@ formElement.addEventListener('submit', function (event) {
         codicePromoElement.classList.add('is-valid')
         codicePromoElement.classList.remove('is-invalid')
     } else if (codicePromo === ''){
-        codicePromoElement.classList.remove('is-valid')
-        codicePromoElement.classList.remove('is-invalid')
+        codicePromoElement.classList.remove('is-valid', "is-invalid")
     } else {
         codicePromoElement.classList.add('is-invalid')
         codicePromoElement.classList.remove('is-valid')
