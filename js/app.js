@@ -28,7 +28,8 @@ formElement.addEventListener('submit', function (event) {
         codicePromoElement.classList.add('is-valid')
         codicePromoElement.classList.remove('is-invalid')
     } else if (codicePromo === ''){
-
+        codicePromoElement.classList.remove('is-valid')
+        codicePromoElement.classList.remove('is-invalid')
     } else {
         codicePromoElement.classList.add('is-invalid')
         codicePromoElement.classList.remove('is-valid')
@@ -36,8 +37,8 @@ formElement.addEventListener('submit', function (event) {
 
     let prezzoFinaleStringa = prezzoFinale.toFixed(2)
     let [parteIntera, parteDecimale] = prezzoFinaleStringa.split('.');
-    // prezzoPreventivoElement.innerHTML = `<span class="fs-4 fw-bold">€ ${parteIntera}</span><span class="fs-5">.${parteDecimale}</span>`
+    prezzoPreventivoElement.innerHTML = `<span class="fs-4 fw-bold">€ ${parteIntera}</span><span class="fs-5">.${parteDecimale}</span>`
 
-    prezzoPreventivoElement.innerHTML = '€' + prezzoFinale.toFixed(2)
+    // prezzoPreventivoElement.innerHTML = '€' + prezzoFinale.toFixed(2)
 
 })
