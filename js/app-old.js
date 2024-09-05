@@ -3,9 +3,9 @@ const oreLavoro = 10
 const codiciPromo = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 
 let tipiLavoroArray = [
-    {value: 'backend', nome: 'Sviluppo Backend', tariffa: 20.50},
-    {value: 'frontend', nome: 'Sviluppo Frontend', tariffa: 15.30},
-    {value: 'analisi', nome: 'Analisi Progettuale', tariffa: 33.60},
+    {value: 'backend', nome: 'Sviluppo Backend'},
+    {value: 'frontend', nome: 'Sviluppo Frontend'},
+    {value: 'analisi', nome: 'Analisi Progettuale'},
 ]
 const lavoroSelect = document.getElementById('lavoro')
 
@@ -19,13 +19,21 @@ tipiLavoroArray.forEach(element => {
 formElement.addEventListener('submit', function (event) {
     event.preventDefault()
     
+    let tariffaOraria
     let lavoro = lavoroSelect.value
     const codicePromoElement = document.getElementById('codicesconto')
     let codicePromo = codicePromoElement.value
     let prezzoPreventivoElement = document.getElementById('prezzo-preventivo')
-    const lavoroSelezionato = tipiLavoroArray.find(element => element.value === lavoro)
+    
+    if (lavoro === 'backend') {
+        tariffaOraria = 20.50
+    } else if (lavoro === 'frontend') {
+        tariffaOraria = 15.30
+    } else if (lavoro === 'analisi') {
+        tariffaOraria = 33.60
+    }
 
-    let prezzoFinale = lavoroSelezionato.tariffa * oreLavoro
+    let prezzoFinale = tariffaOraria * oreLavoro
 
     if (codiciPromo.includes(codicePromo)) {
         prezzoFinale *= 0.75
